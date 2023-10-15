@@ -62,12 +62,13 @@
             </v-col>
             <v-col cols="12" sm="6">
               <v-label>Role </v-label>
+              <span>{{ getRole(item.role) }}</span>
               <v-text-field
-                :label="item.role.department ? item.role.department : ''"
+                :label="this.department ? this.department : ''"
                 readonly
                 solo
                 disabled
-                v-model="item.role.department"
+                v-model="this.department"
                 outlined
               ></v-text-field>
             </v-col>
@@ -84,12 +85,33 @@
   </v-dialog>
 </template>
 <script>
+import axios from "axios";
 export default {
   props: ["item"],
+  
   data() {
     return {
       dialog: false,
+      department:"",
     };
   },
+  methods:{
+    getRole(id) {
+     
+     axios
+       .get("http://localhost:3000/api/v1/role/getRoleById/"+id)
+       .then((res) => {
+        console.log(id)
+         res.data.data.forEach(element => {
+          this.department =element.department;
+         });
+       })
+       .catch((err) => {
+         reject(err);
+      
+       });
+      
+ },
+  }
 };
 </script>

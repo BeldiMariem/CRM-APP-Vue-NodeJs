@@ -118,7 +118,8 @@
             <span>{{ item.email }}</span>
           </td>
           <td>
-            <span>{{ item.role.department }}</span>
+            <span>{{ getRole(item.role)}}{{ department}}</span>
+           
           </td>
           <!-- The Profile Dialog -->
           <td class="center">
@@ -191,6 +192,7 @@ export default {
       { text: "Profile", value: "" },
       { text: "Actions", value: "actions", sortable: false },
     ],
+    department:"",
     users: [],
     editedIndex: -1,
     editedItem: {
@@ -232,6 +234,7 @@ export default {
   },
 
   methods: {
+
     getRoles() {
       return new Promise((resolve, reject) => {
         axios
@@ -254,12 +257,30 @@ export default {
           });
       });
     },
+    getRole(id) {
+     
+        axios
+          .get("http://localhost:3000/api/v1/role/getRoleById/"+id)
+          .then((res) => {
+            res.data.data.forEach(element => {
+             this.department =element.department;
+            });
+          })
+          .catch((err) => {
+            reject(err);
+         
+          });
+         
+    },
+   
+
+
     initialize() {
-      return new Promise((resolve, reject) => {
+   
         axios
           .get("http://localhost:3000/api/v1/auth/getUsers")
           .then((res) => {
-            res.data.forEach((element) => {
+            res.data.data.forEach((element) => {
               if (element.birthDate) {
                 this.users.push({
                   id: element._id,
@@ -288,7 +309,7 @@ export default {
             //   console.log("test err", err.response.data.errors);
             reject(err);
           });
-      });
+      ;
     },
 
     editItem(item) {

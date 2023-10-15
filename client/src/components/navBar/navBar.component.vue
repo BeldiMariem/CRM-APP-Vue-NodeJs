@@ -5,18 +5,19 @@
         color="#6EC59A
         "
       >
-        <!-- <span class="white--text headline">{{
+        <span class="white--text headline">{{
           nameAvatar(currentUser.email)
-        }}</span> -->
+        }}</span> 
       </v-list-item-avatar>
 
       <v-list-item-content>
-        <!-- <v-list-item-title>{{
-          currentUser.email.substring(0, currentUser.email.indexOf("@"))
-        }}</v-list-item-title> -->
-        <!-- <v-list-item-subtitle>{{
-          currentUser.role.department
-        }}</v-list-item-subtitle> -->
+         <v-list-item-title>{{
+          currentUser.firstName
+          +currentUser.lastName
+        }}</v-list-item-title> 
+        <v-list-item-subtitle>
+          Owner
+        </v-list-item-subtitle> 
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
@@ -58,18 +59,7 @@
           <v-list-item-title>Activity Management</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item to="/calendar" active-class="active">
-        <v-list-item-action>
-          <v-icon
-            color="#6EC59A
-              "
-            >mdi-calendar</v-icon
-          >
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title>Calendar</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+
       <v-list-item to="/roleManagement" active-class="active">
         <!---        v-show="currentUser.role.roleFunctionalities.roleManagemnent"
 -->

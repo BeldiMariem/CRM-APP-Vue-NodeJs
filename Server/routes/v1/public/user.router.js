@@ -71,6 +71,7 @@ router.get('/findUsersById/:idUser', (req, res) => {
   //   response.json(res, u)
   // });
 });
+
 router.get('/findUsersByEmail/:email/:password', (req, res) => {
   email = req.params.email;
   password = req.params.password;

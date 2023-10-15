@@ -50,41 +50,9 @@
                   <v-form ref="form" v-model="valid" lazy-validation>
                     <v-container>
                       <v-row>
-                        <v-col cols="4">
-                          <v-label>Contact Type</v-label>
-                          <v-select
-                            :rules="[rules.required]"
-                            outlined
-                            dense
-                            v-model="editedItem.contactType"
-                            :items="typeSelect"
-                          >
-                          </v-select>
-                        </v-col>
+                   
                         <v-col
                           cols="4"
-                          v-if="
-                            editedItem.contactType == 'Community Leader' ||
-                            editedItem.contactType == 'Client'
-                          "
-                        >
-                          <v-label>First Name</v-label>
-                          <v-text-field
-                            :rules="[rules.required]"
-                            solo
-                            dense
-                            append-icon="mdi-account"
-                            v-model="editedItem.firstName"
-                            outlined
-                          >
-                          </v-text-field>
-                        </v-col>
-                        <v-col
-                          cols="4"
-                          v-if="
-                            editedItem.contactType == 'Community Leader' ||
-                            editedItem.contactType == 'Client'
-                          "
                         >
                           <v-label>Last Name</v-label>
                           <v-text-field
@@ -97,21 +65,7 @@
                           >
                           </v-text-field>
                         </v-col>
-                        <v-col
-                          cols="4"
-                          v-if="editedItem.contactType == 'Agency'"
-                        >
-                          <v-label>Agency Name</v-label>
-                          <v-text-field
-                            solo
-                            :rules="[rules.required]"
-                            append-icon="mdi-account"
-                            dense
-                            v-model="editedItem.agencyName"
-                            outlined
-                          >
-                          </v-text-field>
-                        </v-col>
+            
                         <v-col cols="4">
                           <v-label>Email</v-label>
                           <v-text-field
@@ -173,16 +127,7 @@
                             min-width="auto"
                           >
                             <template v-slot:activator="{ on, attrs }">
-                              <v-label>Date of birth:</v-label>
-                              <v-text-field
-                                outlined
-                                :rules="[rules.required]"
-                                dense
-                                v-model="editedItem.dateOfBirth"
-                                append-icon="mdi-calendar"
-                                v-bind="attrs"
-                                v-on="on"
-                              ></v-text-field>
+                        
                             </template>
                             <v-date-picker
                               ref="picker"
@@ -193,137 +138,6 @@
                               @change="saveDate"
                             ></v-date-picker>
                           </v-menu>
-                        </v-col>
-                        <v-col cols="4">
-                          <v-label>Country of residence:</v-label>
-                          <v-autocomplete
-                            solo
-                            :rules="[rules.required]"
-                            dense
-                            append-icon="mdi-flag"
-                            v-model="editedItem.countryOfResidence"
-                            outlined
-                            :items="listCountries"
-                          >
-                          </v-autocomplete>
-                        </v-col>
-
-                        <v-col cols="4">
-                          <v-label>Time Zone:</v-label>
-                          <v-autocomplete
-                            solo
-                            dense
-                            :rules="[rules.required]"
-                            append-icon="mdi-clock"
-                            v-model="editedItem.timeZone"
-                            outlined
-                            :items="listTimeZone"
-                            item-text="name"
-                          >
-                          </v-autocomplete>
-                        </v-col>
-                        <v-col cols="4">
-                          <v-label>Nationality:</v-label>
-                          <v-text-field
-                            solo
-                            :rules="[rules.required]"
-                            append-icon="mdi-earth"
-                            dense
-                            v-model="editedItem.nationality"
-                            outlined
-                          >
-                          </v-text-field>
-                        </v-col>
-
-                        <v-col
-                          cols="4"
-                          v-if="editedItem.contactType == 'Community Leader'"
-                        >
-                          <v-label>Instgram Link:</v-label>
-                          <v-text-field
-                            solo
-                            dense
-                            :rules="[rules.required]"
-                            append-icon="mdi-instagram"
-                            v-model="editedItem.instagramLink"
-                            outlined
-                          >
-                          </v-text-field>
-                        </v-col>
-                        <v-col
-                          cols="4"
-                          v-if="editedItem.contactType == 'Community Leader'"
-                        >
-                          <v-label>Facebook Link:</v-label>
-                          <v-text-field
-                            solo
-                            :rules="[rules.required]"
-                            dense
-                            append-icon="mdi-facebook"
-                            v-model="editedItem.facebookLink"
-                            outlined
-                          >
-                          </v-text-field>
-                        </v-col>
-                        <v-col
-                          cols="4"
-                          v-if="editedItem.contactType == 'Community Leader'"
-                        >
-                          <v-label>YouTube Link:</v-label>
-                          <v-text-field
-                            solo
-                            :rules="[rules.required]"
-                            dense
-                            append-icon="mdi-youtube"
-                            v-model="editedItem.youTubeLink"
-                            outlined
-                          >
-                          </v-text-field>
-                        </v-col>
-                        <v-col
-                          cols="4"
-                          v-if="editedItem.contactType == 'Agency'"
-                        >
-                          <v-label>Website Link:</v-label>
-                          <v-text-field
-                            solo
-                            dense
-                            :rules="[rules.required]"
-                            append-icon="mdi-web"
-                            v-model="editedItem.websiteLink"
-                            outlined
-                          >
-                          </v-text-field>
-                        </v-col>
-                        <v-col
-                          cols="4"
-                          v-if="editedItem.contactType == 'Agency'"
-                        >
-                          <v-label>LinkedIn Link:</v-label>
-                          <v-text-field
-                            solo
-                            dense
-                            :rules="[rules.required]"
-                            append-icon="mdi-linkedin"
-                            v-model="editedItem.linkedInLink"
-                            outlined
-                          >
-                          </v-text-field>
-                        </v-col>
-                        <v-col
-                          cols="4"
-                          v-if="editedItem.contactType == 'Agency'"
-                        >
-                          <v-label>Country Of Operation:</v-label>
-                          <v-text-field
-                            solo
-                            :rules="[rules.required]"
-                            dense
-                            append-icon="mdi-flag"
-                            v-model="editedItem.countryOfOperation"
-                            outlined
-                          >
-                          </v-text-field>
                         </v-col>
                       </v-row>
                     </v-container>
@@ -405,20 +219,11 @@
                 <v-list-item-avatar size="48">
                   <v-avatar color="teal lighten-1">
                     <span class="white--text headline">
-                      {{ nameAvatar(item) }}</span
-                    >
+                      {{ nameAvatar(item) }}</span>
                   </v-avatar>
                 </v-list-item-avatar>
                 <v-list-item-content>
-                  <v-list-item-title
-                    class="subheading font-weight-bold"
-                    v-if="item.contactType == 'Agency'"
-                  >
-                    <span style="font-size: 20px">
-                      {{ item.agencyName }}
-                    </span>
-                  </v-list-item-title>
-                  <v-list-item-title class="subheading font-weight-bold" v-else>
+                  <v-list-item-title class="subheading font-weight-bold">
                     <span style="font-size: 20px">
                       {{ item.firstName }}
                       {{ item.lastName }}</span
@@ -431,14 +236,6 @@
                 <showContact :item="item"></showContact>
               </v-list-item>
               <v-divider></v-divider>
-              <v-list-item>
-                <v-list-item-content>
-                  <b>Type:</b>
-                </v-list-item-content>
-                <v-list-item-content class="align-end">{{
-                  item.contactType
-                }}</v-list-item-content>
-              </v-list-item>
               <v-list-item>
                 <v-list-item-content>
                   <b>Phone Number:</b>
@@ -541,13 +338,9 @@
             <v-icon>mdi-chevron-right</v-icon>
           </v-btn>
         </v-row>
-      </template></v-data-iterator
-    ></v-container
-  >
+      </template></v-data-iterator></v-container>
 </template>
-    </v-data-iterator>
-  </v-container>
-</template>
+
 <script>
 import VueTelInput from "vue-tel-input";
 import axios from "axios";
@@ -650,20 +443,8 @@ export default {
         phoneNumber: "",
         email: "",
         address: "",
-        contactType: "",
         gender: "",
         dateOfBirth: "",
-        countryOfResidence: "",
-        timeZone: "",
-        nationality: "",
-        communityLeaderGrade: "",
-        agencyName: "",
-        websiteLink: "",
-        instagramLink: "",
-        facebookLink: "",
-        youTubeLink: "",
-        linkedInLink: "",
-        countryOfOperation: "",
       },
       defaultItem: {
         _id: "",
@@ -672,647 +453,11 @@ export default {
         phoneNumber: "",
         email: "",
         address: "",
-        contactType: "",
         gender: "",
         dateOfBirth: "",
-        countryOfResidence: "",
-        timeZone: "",
-        nationality: "",
-        communityLeaderGrade: "",
-        agencyName: "",
-        websiteLink: "",
-        instagramLink: "",
-        facebookLink: "",
-        youTubeLink: "",
-        linkedInLink: "",
-        countryOfOperation: "",
       },
       items: [],
-      listCountries: [
-        "Afghanistan",
-        "Albania",
-        "Algeria",
-        "American Samoa",
-        "Andorra",
-        "Angola",
-        "Anguilla",
-        "Antarctica",
-        "Antigua and Barbuda",
-        "Argentina",
-        "Armenia",
-        "Aruba",
-        "Australia",
-        "Austria",
-        "Azerbaijan",
-        "Bahamas (the)",
-        "Bahrain",
-        "Bangladesh",
-        "Barbados",
-        "Belarus",
-        "Belgium",
-        "Belize",
-        "Benin",
-        "Bermuda",
-        "Bhutan",
-        "Bolivia (Plurinational State of)",
-        "Bonaire, Sint Eustatius and Saba",
-        "Bosnia and Herzegovina",
-        "Botswana",
-        "Bouvet Island",
-        "Brazil",
-        "British Indian Ocean Territory (the)",
-        "Brunei Darussalam",
-        "Bulgaria",
-        "Burkina Faso",
-        "Burundi",
-        "Cabo Verde",
-        "Cambodia",
-        "Cameroon",
-        "Canada",
-        "Cayman Islands (the)",
-        "Central African Republic (the)",
-        "Chad",
-        "Chile",
-        "China",
-        "Christmas Island",
-        "Cocos (Keeling) Islands (the)",
-        "Colombia",
-        "Comoros (the)",
-        "Congo (the Democratic Republic of the)",
-        "Congo (the)",
-        "Cook Islands (the)",
-        "Costa Rica",
-        "Croatia",
-        "Cuba",
-        "Curaçao",
-        "Cyprus",
-        "Czechia",
-        "Côte d'Ivoire",
-        "Denmark",
-        "Djibouti",
-        "Dominica",
-        "Dominican Republic (the)",
-        "Ecuador",
-        "Egypt",
-        "El Salvador",
-        "Equatorial Guinea",
-        "Eritrea",
-        "Estonia",
-        "Eswatini",
-        "Ethiopia",
-        "Falkland Islands (the) [Malvinas]",
-        "Faroe Islands (the)",
-        "Fiji",
-        "Finland",
-        "France",
-        "French Guiana",
-        "French Polynesia",
-        "French Southern Territories (the)",
-        "Gabon",
-        "Gambia (the)",
-        "Georgia",
-        "Germany",
-        "Ghana",
-        "Gibraltar",
-        "Greece",
-        "Greenland",
-        "Grenada",
-        "Guadeloupe",
-        "Guam",
-        "Guatemala",
-        "Guernsey",
-        "Guinea",
-        "Guinea-Bissau",
-        "Guyana",
-        "Haiti",
-        "Heard Island and McDonald Islands",
-        "Holy See (the)",
-        "Honduras",
-        "Hong Kong",
-        "Hungary",
-        "Iceland",
-        "India",
-        "Indonesia",
-        "Iran (Islamic Republic of)",
-        "Iraq",
-        "Ireland",
-        "Isle of Man",
-        "Israel",
-        "Italy",
-        "Jamaica",
-        "Japan",
-        "Jersey",
-        "Jordan",
-        "Kazakhstan",
-        "Kenya",
-        "Kiribati",
-        "Korea (the Democratic People's Republic of)",
-        "Korea (the Republic of)",
-        "Kuwait",
-        "Kyrgyzstan",
-        "Lao People's Democratic Republic (the)",
-        "Latvia",
-        "Lebanon",
-        "Lesotho",
-        "Liberia",
-        "Libya",
-        "Liechtenstein",
-        "Lithuania",
-        "Luxembourg",
-        "Macao",
-        "Madagascar",
-        "Malawi",
-        "Malaysia",
-        "Maldives",
-        "Mali",
-        "Malta",
-        "Marshall Islands (the)",
-        "Martinique",
-        "Mauritania",
-        "Mauritius",
-        "Mayotte",
-        "Mexico",
-        "Micronesia (Federated States of)",
-        "Moldova (the Republic of)",
-        "Monaco",
-        "Mongolia",
-        "Montenegro",
-        "Montserrat",
-        "Morocco",
-        "Mozambique",
-        "Myanmar",
-        "Namibia",
-        "Nauru",
-        "Nepal",
-        "Netherlands (the)",
-        "New Caledonia",
-        "New Zealand",
-        "Nicaragua",
-        "Niger (the)",
-        "Nigeria",
-        "Niue",
-        "Norfolk Island",
-        "Northern Mariana Islands (the)",
-        "Norway",
-        "Oman",
-        "Pakistan",
-        "Palau",
-        "Palestine, State of",
-        "Panama",
-        "Papua New Guinea",
-        "Paraguay",
-        "Peru",
-        "Philippines (the)",
-        "Pitcairn",
-        "Poland",
-        "Portugal",
-        "Puerto Rico",
-        "Qatar",
-        "Republic of North Macedonia",
-        "Romania",
-        "Russian Federation (the)",
-        "Rwanda",
-        "Réunion",
-        "Saint Barthélemy",
-        "Saint Helena, Ascension and Tristan da Cunha",
-        "Saint Kitts and Nevis",
-        "Saint Lucia",
-        "Saint Martin (French part)",
-        "Saint Pierre and Miquelon",
-        "Saint Vincent and the Grenadines",
-        "Samoa",
-        "San Marino",
-        "Sao Tome and Principe",
-        "Saudi Arabia",
-        "Senegal",
-        "Serbia",
-        "Seychelles",
-        "Sierra Leone",
-        "Singapore",
-        "Sint Maarten (Dutch part)",
-        "Slovakia",
-        "Slovenia",
-        "Solomon Islands",
-        "Somalia",
-        "South Africa",
-        "South Georgia and the South Sandwich Islands",
-        "South Sudan",
-        "Spain",
-        "Sri Lanka",
-        "Sudan (the)",
-        "Suriname",
-        "Svalbard and Jan Mayen",
-        "Sweden",
-        "Switzerland",
-        "Syrian Arab Republic",
-        "Taiwan",
-        "Tajikistan",
-        "Tanzania, United Republic of",
-        "Thailand",
-        "Timor-Leste",
-        "Togo",
-        "Tokelau",
-        "Tonga",
-        "Trinidad and Tobago",
-        "Tunisia",
-        "Turkey",
-        "Turkmenistan",
-        "Turks and Caicos Islands (the)",
-        "Tuvalu",
-        "Uganda",
-        "Ukraine",
-        "United Arab Emirates (the)",
-        "United Kingdom of Great Britain and Northern Ireland (the)",
-        "United States Minor Outlying Islands (the)",
-        "United States of America (the)",
-        "Uruguay",
-        "Uzbekistan",
-        "Vanuatu",
-        "Venezuela (Bolivarian Republic of)",
-        "Viet Nam",
-        "Virgin Islands (British)",
-        "Virgin Islands (U.S.)",
-        "Wallis and Futuna",
-        "Western Sahara",
-        "Yemen",
-        "Zambia",
-        "Zimbabwe",
-        "Åland Islands",
-      ],
-      listTimeZone: [
-        {
-          offset: "GMT-12:00",
-          name: "Etc/GMT-12",
-        },
-        {
-          offset: "GMT-11:00",
-          name: "Etc/GMT-11",
-        },
-        {
-          offset: "GMT-11:00",
-          name: "Pacific/Midway",
-        },
-        {
-          offset: "GMT-10:00",
-          name: "America/Adak",
-        },
-        {
-          offset: "GMT-09:00",
-          name: "America/Anchorage",
-        },
-        {
-          offset: "GMT-09:00",
-          name: "Pacific/Gambier",
-        },
-        {
-          offset: "GMT-08:00",
-          name: "America/Dawson_Creek",
-        },
-        {
-          offset: "GMT-08:00",
-          name: "America/Ensenada",
-        },
-        {
-          offset: "GMT-08:00",
-          name: "America/Los_Angeles",
-        },
-        {
-          offset: "GMT-07:00",
-          name: "America/Chihuahua",
-        },
-        {
-          offset: "GMT-07:00",
-          name: "America/Denver",
-        },
-        {
-          offset: "GMT-06:00",
-          name: "America/Belize",
-        },
-        {
-          offset: "GMT-06:00",
-          name: "America/Cancun",
-        },
-        {
-          offset: "GMT-06:00",
-          name: "America/Chicago",
-        },
-        {
-          offset: "GMT-06:00",
-          name: "Chile/EasterIsland",
-        },
-        {
-          offset: "GMT-05:00",
-          name: "America/Bogota",
-        },
-        {
-          offset: "GMT-05:00",
-          name: "America/Havana",
-        },
-        {
-          offset: "GMT-05:00",
-          name: "America/New_York",
-        },
-        {
-          offset: "GMT-04:30",
-          name: "America/Caracas",
-        },
-        {
-          offset: "GMT-04:00",
-          name: "America/Campo_Grande",
-        },
-        {
-          offset: "GMT-04:00",
-          name: "America/Glace_Bay",
-        },
-        {
-          offset: "GMT-04:00",
-          name: "America/Goose_Bay",
-        },
-        {
-          offset: "GMT-04:00",
-          name: "America/Santiago",
-        },
-        {
-          offset: "GMT-04:00",
-          name: "America/La_Paz",
-        },
-        {
-          offset: "GMT-03:00",
-          name: "America/Argentina/Buenos_Aires",
-        },
-        {
-          offset: "GMT-03:00",
-          name: "America/Montevideo",
-        },
-        {
-          offset: "GMT-03:00",
-          name: "America/Araguaina",
-        },
-        {
-          offset: "GMT-03:00",
-          name: "America/Godthab",
-        },
-        {
-          offset: "GMT-03:00",
-          name: "America/Miquelon",
-        },
-        {
-          offset: "GMT-03:00",
-          name: "America/Sao_Paulo",
-        },
-        {
-          offset: "GMT-03:30",
-          name: "America/St_Johns",
-        },
-        {
-          offset: "GMT-02:00",
-          name: "America/Noronha",
-        },
-        {
-          offset: "GMT-01:00",
-          name: "Atlantic/Cape_Verde",
-        },
-        {
-          offset: "GMT",
-          name: "Europe/Belfast",
-        },
-        {
-          offset: "GMT",
-          name: "Africa/Abidjan",
-        },
-        {
-          offset: "GMT",
-          name: "Europe/Dublin",
-        },
-        {
-          offset: "GMT",
-          name: "Europe/Lisbon",
-        },
-        {
-          offset: "GMT",
-          name: "Europe/London",
-        },
-        {
-          offset: "UTC",
-          name: "UTC",
-        },
-        {
-          offset: "GMT+01:00",
-          name: "Africa/Algiers",
-        },
-        {
-          offset: "GMT+01:00",
-          name: "Africa/Windhoek",
-        },
-        {
-          offset: "GMT+01:00",
-          name: "Atlantic/Azores",
-        },
-        {
-          offset: "GMT+01:00",
-          name: "Atlantic/Stanley",
-        },
-        {
-          offset: "GMT+01:00",
-          name: "Europe/Amsterdam",
-        },
-        {
-          offset: "GMT+01:00",
-          name: "Europe/Belgrade",
-        },
-        {
-          offset: "GMT+01:00",
-          name: "Europe/Brussels",
-        },
-        {
-          offset: "GMT+02:00",
-          name: "Africa/Cairo",
-        },
-        {
-          offset: "GMT+02:00",
-          name: "Africa/Blantyre",
-        },
-        {
-          offset: "GMT+02:00",
-          name: "Asia/Beirut",
-        },
-        {
-          offset: "GMT+02:00",
-          name: "Asia/Damascus",
-        },
-        {
-          offset: "GMT+02:00",
-          name: "Asia/Gaza",
-        },
-        {
-          offset: "GMT+02:00",
-          name: "Asia/Jerusalem",
-        },
-        {
-          offset: "GMT+03:00",
-          name: "Africa/Addis_Ababa",
-        },
-        {
-          offset: "GMT+03:00",
-          name: "Asia/Riyadh89",
-        },
-        {
-          offset: "GMT+03:00",
-          name: "Europe/Minsk",
-        },
-        {
-          offset: "GMT+03:30",
-          name: "Asia/Tehran",
-        },
-        {
-          offset: "GMT+04:00",
-          name: "Asia/Dubai",
-        },
-        {
-          offset: "GMT+04:00",
-          name: "Asia/Yerevan",
-        },
-        {
-          offset: "GMT+04:00",
-          name: "Europe/Moscow",
-        },
-        {
-          offset: "GMT+04:30",
-          name: "Asia/Kabul",
-        },
-        {
-          offset: "GMT+05:00",
-          name: "Asia/Tashkent",
-        },
-        {
-          offset: "GMT+05:30",
-          name: "Asia/Kolkata",
-        },
-        {
-          offset: "GMT+05:45",
-          name: "Asia/Katmandu",
-        },
-        {
-          offset: "GMT+06:00",
-          name: "Asia/Dhaka",
-        },
-        {
-          offset: "GMT+06:00",
-          name: "Asia/Yekaterinburg",
-        },
-        {
-          offset: "GMT+06:30",
-          name: "Asia/Rangoon",
-        },
-        {
-          offset: "GMT+07:00",
-          name: "Asia/Bangkok",
-        },
-        {
-          offset: "GMT+07:00",
-          name: "Asia/Novosibirsk",
-        },
-        {
-          offset: "GMT+08:00",
-          name: "Etc/GMT+8",
-        },
-        {
-          offset: "GMT+08:00",
-          name: "Asia/Hong_Kong",
-        },
-        {
-          offset: "GMT+08:00",
-          name: "Asia/Krasnoyarsk",
-        },
-        {
-          offset: "GMT+08:00",
-          name: "Australia/Perth",
-        },
-        {
-          offset: "GMT+08:45",
-          name: "Australia/Eucla",
-        },
-        {
-          offset: "GMT+09:00",
-          name: "Asia/Irkutsk",
-        },
-        {
-          offset: "GMT+09:00",
-          name: "Asia/Seoul",
-        },
-        {
-          offset: "GMT+09:00",
-          name: "Asia/Tokyo",
-        },
-        {
-          offset: "GMT+09:30",
-          name: "Australia/Adelaide",
-        },
-        {
-          offset: "GMT+09:30",
-          name: "Australia/Darwin",
-        },
-        {
-          offset: "GMT+09:30",
-          name: "Pacific/Marquesas",
-        },
-        {
-          offset: "GMT+10:00",
-          name: "Etc/GMT+10",
-        },
-        {
-          offset: "GMT+10:00",
-          name: "Australia/Brisbane",
-        },
-        {
-          offset: "GMT+10:00",
-          name: "Australia/Hobart",
-        },
-        {
-          offset: "GMT+10:00",
-          name: "Asia/Yakutsk",
-        },
-        {
-          offset: "GMT+10:30",
-          name: "Australia/Lord_Howe",
-        },
-        {
-          offset: "GMT+11:00",
-          name: "Asia/Vladivostok",
-        },
-        {
-          offset: "GMT+11:30",
-          name: "Pacific/Norfolk",
-        },
-        {
-          offset: "GMT+12:00",
-          name: "Etc/GMT+12",
-        },
-        {
-          offset: "GMT+12:00",
-          name: "Asia/Anadyr",
-        },
-        {
-          offset: "GMT+12:00",
-          name: "Asia/Magadan",
-        },
-        {
-          offset: "GMT+12:00",
-          name: "Pacific/Auckland",
-        },
-        {
-          offset: "GMT+12:45",
-          name: "Pacific/Chatham",
-        },
-        {
-          offset: "GMT+13:00",
-          name: "Pacific/Tongatapu",
-        },
-        {
-          offset: "GMT+14:00",
-          name: "Pacific/Kiritimati",
-        },
-      ],
+
       contacts: [],
     };
   },
@@ -1353,38 +498,10 @@ export default {
     saveDate(date) {
       this.$refs.menu.saveDate(date);
     },
-  /*  getDeals(item) {
-      if (this.ContactData != []) {
-        this.ContactData = [];
-      }
-      axios
-        .get(
-          "http://localhost:3000/api/v1/deal/getDealsByContact?dealsContactId=" +
-            item._id
-        )
-        .then((res) => {
-          this.ContactData = res.data.data;
-        })
-        .catch((err) => {
-          console.log("err", err);
-        });
+    nameAvatar(item) {
+        return item.firstName[0].toUpperCase();
     },
-      (item) {
-      if (item) {
-        if (item.contactType == "Agency") {
-          return item.agencyName[0].toUpperCase();
-        } else {
-          if (item.lastName) {
-            return (
-              item.firstName[0].toUpperCase() + item.lastName[0].toUpperCase()
-            );
-          } else {
-            return item.firstName[0].toUpperCase();
-          }
-        }
-      }
-    },*/
-    initialize() {
+  initialize() {
       return new Promise((resolve, reject) => {
         axios
           .get("http://localhost:3000/api/v1/contact/getContacts")
@@ -1394,42 +511,19 @@ export default {
             res.data.data.forEach((element) => {
               listContacts.push({
                 _id: element._id,
-                // title: element.title,
-                // activityType: element.activityType,
-                // startDate: new Date(element.startDate)
-                //   .toISOString()
-                //   .substr(0, 10),
-                // endDate: new Date(element.endDate).toISOString().substr(0, 10),
-                // time: element.time,
-                // description: element.description,
-                // activityUsers: element.activityUsers,
-                // assignedUser: element.assignedUser,
-                // done: element.done,
-
                 firstName: element.firstName,
                 lastName: element.lastName,
                 phoneNumber: element.phoneNumber,
                 email: element.email,
                 address: element.address,
-                contactType: element.contactType,
                 gender: element.gender,
                 dateOfBirth: new Date(element.dateOfBirth)
                   .toISOString()
-                  .substr(0, 10),
-                countryOfResidence: element.countryOfResidence,
-                timeZone: element.timeZone,
-                nationality: element.nationality,
-                communityLeaderGrade: element.communityLeaderGrade,
-                agencyName: element.agencyName,
-                websiteLink: element.websiteLink,
-                instagramLink: element.instagramLink,
-                facebookLink: element.facebookLink,
-                youTubeLink: element.youTubeLink,
-                linkedInLink: element.linkedInLink,
-                countryOfOperation: element.countryOfOperation,
+                  .substr(0, 10),  
               });
-              this.items = listContacts;
+              
               console.log("######3", this.contacts);
+              this.items = listContacts;
             });
           })
           .catch((err) => {

@@ -10,7 +10,8 @@ const roleRoutes = require('./routes/v1/public/role.router')
 const activityRoutes = require('./routes/v1/public/activity.router')
 const contactRoutes = require('./routes/v1/public/contact.router')
 const dealRoutes = require('./routes/v1/public/deal.router')
-
+const projectRoutes = require('./routes/v1/public/project.router')
+const taskRoutes = require('./routes/v1/public/task.router')
 const PORT = process.env.PORT || 3000;
 
 // mongodb+srv://manel:0000@cluster0.ge0wt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
@@ -41,5 +42,6 @@ app.use('/api/user', roleRoutes);
 app.use('/api/activity', activityRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/deal', dealRoutes);
-
+app.use('/api/project', projectRoutes);
+app.use('/api/task', taskRoutes);
 app.listen(PORT, () => console.log(`Server up and running at ${PORT}`));

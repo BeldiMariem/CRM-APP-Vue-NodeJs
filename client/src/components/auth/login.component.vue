@@ -2,17 +2,17 @@
   <v-app>
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="4">
-        <v-card width="500" class="elevation-5">
+      
           <v-container>
             <br />
             <div style="text-align: center">
-              <v-icon color="info" size="48" outlined>mdi-account</v-icon>
-              <h4>Login</h4>
+              <v-icon color="teal" size="48" outlined>mdi-account</v-icon>
+              <h4>Sign In</h4>
             </div>
             <br />
             <v-divider></v-divider>
             <br />
-            <v-card-text>
+      
               <v-form ref="form" v-model="valid" :lazy-validation="lazy">
                 <v-text-field
                   label=" Email"
@@ -34,22 +34,22 @@
                 />
               </v-form>
               <v-btn
-                color="info"
+                color="teal"
                 class="mr-4"
                 @click="Login"
-                style="height: 45px"
+                style="height: 45px;color:white"
                 block
-                black
+                
               >
-                <v-icon left>mdi-login</v-icon>Login
+                <v-icon left>mdi-login</v-icon>Sign In
               </v-btn>
-              <v-card-actions class="text-xs-center" text align="center">
+           
                 <v-flex justify-center>
-                  <v-btn color="info" to="/forgetPassword" text>
+                  <v-btn color="teal" to="/forgetPassword" text>
                     Forgot password?
                   </v-btn>
                 </v-flex>
-              </v-card-actions>
+           
               <v-dialog v-model="dialog" persistent max-width="600px">
                 <v-card>
                   <v-card-title>
@@ -121,9 +121,9 @@
                 </v-card>
               </v-dialog>
               <br />
-            </v-card-text>
+         
           </v-container>
-        </v-card>
+      
       </v-col>
       <v-snackbar
         v-model="snackbar"
@@ -203,37 +203,7 @@ export default {
   },
 
   methods: {
-    /**
-     * Note : I think there is an issue with this one :
-     * when : when user is new added, the reset does not work due to forbidden issue
-     * must also add an error messgae in case the status is 403
-     */
-    // resetPassword() {
-    //   let token = localStorage.token;
-    //   let newPassword = this.dataUser.password;
-    //   let confirmPassword = this.dataUser.confirmPassword;
-    //   axios.defaults.headers.common["Authorization"] =
-    //     "Bearer " + localStorage.getItem("token");
-    //   axios
-    //     .put("http://localhost:3000/api/v1/auth/resetPassword", {
-    //       newPassword,
-    //       confirmPassword,
-    //     })
-    //     .then((res) => {
-    //       this.dialog = false;
-    //       //this.$router.push({ path: "/login" });
-    //     })
-    //     .catch((error) => {
-    //       console.log("##error", error.response);
-    //       console.log("@@error", error.response.data);
-    //       if (error.response.status === 400) this.error = "Error";
-    //       if (error.response.status === 403) this.error = "Error";
-    //       this.icon = "mdi-alert";
-    //       this.snackbarText = error.response.data.errors;
-    //       this.color = "red";
-    //       this.snackbar = true;
-    //     });
-    // },
+
     resetPassword() {
       let token = localStorage.token;
       let newPassword = this.dataUser.password;
@@ -278,72 +248,7 @@ export default {
       }
     },
 
-    // validate() {
-    //   if (this.$refs.form.validate()) {
-    //     Axios.get("http://localhost:3000/user").then((res) => {
-    //       res.data.forEach((item) => {
-    //         if (this.email == item.login && this.pass == item.mdp) {
-    //           // this.$router.push({ path: "/student" });
-    //           localStorage.setItem("id", item.id);
-    //           localStorage.setItem("login", item.login);
-    //           localStorage.setItem("role", item.role);
-    //           localStorage.setItem("nom", item.Nom);
-    //           this.role = item.role;
-    //           // v means user exists
-    //           this.v = true;
-    //         }
-    //       });
-    //       if (this.v) {
-    //         if (this.role == "student") {
-    //           // this.$router.push({ path: "/student" });
-    //           this.$router.push({ path: "/Nav2" });
-    //         } else {
-    //           this.$router.push({ path: "/Nav" });
-    //         }
-    //       } else {
-    //         alert("WRONG PSW OR LOGIN CHECK");
-    //       }
-    //       // this.users = res.data;
-    //     });
-    //   }
-    // },
-    // getInfoByToken(token) {
-    //   return new Promise((resolve, reject) => {
-    //     axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-    //     axios
-    //       .get("http://localhost:3000/api/v1/auth/getInfoByToken")
-    //       .then((response) => {
-    //         console.log("response.data.data", response.data.data);
-    //         resolve(response.data.data);
-    //       })
-    //       .catch((err) => {
-    //         localStorage.clear();
-    //         console.log("test err", err.response.data.errors);
-    //         reject(err);
-    //       });
-    //   });
-    // },
-    // getInfoByToken() {
-    //   console.log(" localStorage.token", localStorage.token);
-    //   return new Promise((resolve, reject) => {
-    //     axios.defaults.headers.common["Authorization"] =
-    //       "Bearer " + localStorage.token;
-    //     axios
-    //       .get("http://localhost:3000/api/v1/auth/getInfoByToken")
-    //       .then((response) => {
-    //         console.log("aaaa", response);
-    //         localStorage.setItem("email", response.data[0].email);
-    //         localStorage.setItem("firstName", response.data[0].firstName);
-    //         localStorage.setItem("lastName", response.data[0].lastName);
-    //         localStorage.setItem("role", response.data[0].role.department);
-    //       })
-    //       .catch((err) => {
-    //         //localStorage.clear();
-    //         console.log("test err", err);
-    //         reject(err);
-    //       });
-    //   });
-    // },
+   
     Login() {
       this.$store
         .dispatch("loginAction", this.dataUser)
@@ -371,56 +276,9 @@ export default {
             this.color = "red";
             this.snackbar = true;
           }
-        });
+        }); 
     },
-    // Login() {
-    //   return new Promise((resolve, reject) => {
-    //     axios
-    //       .post("http://localhost:3000/api/v1/auth/login", {
-    //         email: this.email,
-    //         password: this.password,
-    //       })
-    //       .then((res) => {
-    //         if (this.password == "Azerty123") {
-    //           this.dialog = true;
-    //           //this.$router.push({ path: "/userManagement" });
-    //           localStorage.setItem("token", res.data.data);
-    //           localStorage.setItem("email", this.email);
-    //           let test = this.getInfoByToken(localStorage.token);
-    //           console.log("testtesttest", test);
-    //           var decoded = jwt_decode(res.data.data);
-    //           this.getInfoByToken();
-    //           let v = this.getInfoByToken();
-    //           console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", v);
-    //           // console.log("de", decoded);
-    //         } else {
-    //           this.dialog = false;
-    //           //let test = this.getInfoByToken(localStorage.token);
-    //           //console.log("testtesttest", test);
-    //           this.$router.push({ path: "/userManagement" });
-    //           localStorage.setItem("token", res.data.data);
-    //           localStorage.setItem("email", this.email);
-    //           var decoded = jwt_decode(res.data.data);
-    //           let v = this.getInfoByToken();
-    //           console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!", v);
-
-    //           ///  localStorage.setItem("idUser", decoded.idUser);
-    //           //console.log("de", decoded);
-    //         }
-    //       })
-    //       .catch((error) => {
-    //         if (error) {
-    //           this.dialog = false;
-    //           console.log("error.response.data.errors", error);
-    //           if (error.response.status === 400) this.error = "Error";
-    //           this.icon = "mdi-alert";
-    //           this.snackbarText = error.response.data.errors;
-    //           this.color = "red";
-    //           this.snackbar = true;
-    //         }
-    //       });
-    //   });
-    // },
+    
   },
 };
 </script>

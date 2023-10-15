@@ -33,12 +33,8 @@
                   </div>
                   <v-divider></v-divider>
                   <v-row no-gutters class="text-left" tag="v-card-text">
-                    <v-col class="text-left mb-2" tag="strong" cols="6"
-                      >Type :
-                    </v-col>
-                    <v-col cols="6" class="text-capitalize">
-                      {{ item.contactType }}
-                    </v-col>
+                  
+               
                     <v-col class="text-left mb-2" tag="strong" cols="6"
                       >First Name:
                     </v-col>
@@ -64,18 +60,7 @@
                     </v-col>
                     <v-col cols="6">{{ item.dateOfBirth.slice(0, 10) }}</v-col>
 
-                    <v-col class="text-left mb-2" tag="strong" cols="6"
-                      >Time zone:
-                    </v-col>
-                    <v-col cols="6">{{ item.timeZone }}</v-col>
-                    <v-col class="text-left mb-2" tag="strong" cols="6"
-                      >Nationality:
-                    </v-col>
-                    <v-col cols="6">{{ item.nationality }}</v-col>
-                    <v-col class="text-left mb-2" tag="strong" cols="6"
-                      >Country of residence:
-                    </v-col>
-                    <v-col cols="6">{{ item.countryOfResidence }}</v-col>
+                  
                   </v-row>
                 </v-card-text>
               </v-card>
@@ -244,16 +229,9 @@ export default {
     },
     nameAvatar(item) {
       if (item) {
-        if (item.contactType === "Agency")
-          return item.agencyName[0].toUpperCase();
-        if (item.contactType === "Client")
-          return (
+  
             item.firstName[0].toUpperCase() + item.lastName[0].toUpperCase()
-          );
-        if (item.contactType === "Community Leader")
-          return (
-            item.firstName[0].toUpperCase() + item.lastName[0].toUpperCase()
-          );
+          
       } else {
         return " ";
       }

@@ -303,7 +303,7 @@ export default {
     //   );
     // },
     NumbreOfusers() {
-      if (this.Users) return this.Users.length;
+      if (this.Users) return this.Users.data.length;
     },
     TaskLength() {
       if (this.tasks) return this.tasks.length;
@@ -474,4 +474,3 @@ export default {
   background: transparent; /* make scrollbar transparent */
 }
 </style>
-

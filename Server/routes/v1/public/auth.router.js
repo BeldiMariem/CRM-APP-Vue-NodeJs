@@ -139,10 +139,11 @@ router.post('/updateProfile', verify, (req, res) => {
 
 router.get('/getUsers', (req, res) => {
   User.find({})
-    .populate("role")
-    .exec(function (error, role) {
-      res.json(role)
+    .then(data => {
+      console.log("The roles found after searching:", data);
+      response.json(res, data)
     })
+
 });
 
 router.get('/getInfoByToken', verify, (req, res) => {

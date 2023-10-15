@@ -85,17 +85,17 @@ const routes = [
       // requiresAuth: true
     },
   },
-  // {
-  //   path: "/contactManagement",
-  //   name: "contactManagement",
-  //   components: {
-  //     default: contactManagement,
-  //     NavBar: Nav,
-  //   },
-  //   meta: {
-  //     //  requiresAuth: true
-  //   },
-  // },
+  {
+     path: "/contactManagement",
+   name: "contactManagement",
+     components: {
+       default: contactManagement,
+       NavBar: Nav,
+     },
+     meta: {
+         requiresAuth: true
+    },
+   },
   {
     path: "/dealsManagement",
     name: "dealsManagement",

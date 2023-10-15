@@ -64,6 +64,16 @@ router.get('/deleteRole/:idRole', (req, res) => {
     }
   });
 });
+router.get('/getRoleById/:idRole', (req, res) => {
+  idRole = req.params.idRole;
+  console.log("test", req.params.idRole)
+  Role.find({
+      "_id": idRole
+    })
+    .then(data => {
+      response.json(res, data)
+    })
+  });
 
 router.get('/getRoleByDepartment', (req, res) => {
   //console.log("req.query.roleName", req.query.roleName)
@@ -74,5 +84,6 @@ router.get('/getRoleByDepartment', (req, res) => {
     response.badRequest(res, err);
   })
 });
+
 
 module.exports = router;

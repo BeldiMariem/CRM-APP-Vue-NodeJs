@@ -244,7 +244,7 @@
                               </v-menu>
                             </v-col>
 
-                            <v-col cols="12" sm="12">
+                          <!-- <v-col cols="12" sm="12">
                               <span class="label">People</span>
                               <v-combobox
                                 multiple
@@ -270,7 +270,7 @@
                                   </template>
                                 </template>
                               </v-combobox>
-                            </v-col>
+                            </v-col> -->
 
                             <v-col cols="12" sm="12" md="12">
                               <span class="label">Title</span>
@@ -425,8 +425,8 @@
                 ></v-pagination>
               </div>
             </v-row> </template></v-data-iterator></v-col></v-row
-  ></v-app>
-</template>
+           ></v-app>
+          </template>
         </v-data-iterator>
       </v-col>
     </v-row>
@@ -727,7 +727,7 @@ export default {
                 .substr(0, 10),
               time: this.editedItem.time,
               description: this.editedItem.description,
-              activityUsers: this.editedItem.activityUsers,
+              activityUsers: [],
               assignedUser: this.currentUser._id,
               done: this.editedItem.done,
             })

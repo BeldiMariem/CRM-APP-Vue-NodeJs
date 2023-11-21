@@ -106,10 +106,6 @@ export default {
           this.department =element.department;
          });
        })
-       .catch((err) => {
-         reject(err);
-      
-       });
       
  },
   }

@@ -62,32 +62,32 @@
                     </v-col>
                     <!-- <v-col cols="12" sm="6">
                       <v-checkbox
-                        v-model="editedItem.roleManagemnent"
-                        label="Role Managemnent"
+                        v-model="editedItem.roleManagement"
+                        label="Role Management"
                       ></v-checkbox>
                     </v-col> -->
                     <v-col cols="12" sm="6">
                       <v-checkbox
-                        v-model="editedItem.userManagemnent"
-                        label="User Managemnent"
+                        v-model="editedItem.userManagement"
+                        label="User Management"
                       ></v-checkbox>
                     </v-col>
                     <v-col cols="12" sm="6">
                       <v-checkbox
-                        v-model="editedItem.activityManagemnent"
-                        label="Activity Managemnent"
+                        v-model="editedItem.activityManagement"
+                        label="Activity Management"
                       ></v-checkbox>
                     </v-col>
                     <v-col cols="12" sm="6">
                       <v-checkbox
-                        v-model="editedItem.contactManagemnent"
-                        label="Contact Managemnent"
+                        v-model="editedItem.contactManagement"
+                        label="Contact Management"
                       ></v-checkbox>
                     </v-col>
                     <v-col cols="12" sm="6">
                       <v-checkbox
-                        v-model="editedItem.dealsManagemnent"
-                        label="Deals Managemnent"
+                        v-model="editedItem.dealsManagement"
+                        label="Deals Management"
                       ></v-checkbox>
                     </v-col>
                   </v-row>
@@ -130,7 +130,7 @@
           <td>
             <v-icon
               dense
-              v-if="item.roleManagemnent != true"
+              v-if="item.roleManagement != true"
               color="red accent-3"
               aria-hidden="true"
               >mdi-minus-circle-outline</v-icon
@@ -142,7 +142,7 @@
           <td>
             <v-icon
               dense
-              v-if="item.userManagemnent != true"
+              v-if="item.userManagement != true"
               color="red accent-3"
               aria-hidden="true"
               >mdi mdi-minus-circle-outline</v-icon
@@ -154,7 +154,7 @@
           <td>
             <v-icon
               dense
-              v-if="item.activityManagemnent != true"
+              v-if="item.activityManagement != true"
               color="red accent-3"
               aria-hidden="true"
               >mdi mdi-minus-circle-outline</v-icon
@@ -166,7 +166,7 @@
           <td>
             <v-icon
               dense
-              v-if="item.contactManagemnent != true"
+              v-if="item.contactManagement != true"
               color="red accent-3"
               aria-hidden="true"
               >mdi mdi-minus-circle-outline</v-icon
@@ -178,7 +178,7 @@
           <td>
             <v-icon
               dense
-              v-if="item.dealsManagemnent != true"
+              v-if="item.dealsManagement != true"
               color="red accent-3"
               aria-hidden="true"
               >mdi mdi-minus-circle-outline</v-icon
@@ -257,11 +257,11 @@ export default {
         sortable: false,
         value: "department",
       },
-      { text: "Role managemnent", value: "roleManagemnent" },
-      { text: "User managemnent", value: "userManagemnent" },
-      { text: "Activity managemnent", value: "activityManagemnent" },
-      { text: "Contact managemnent", value: "contactManagemnent" },
-      { text: "Deals managemnent", value: "dealsManagemnent" },
+      { text: "Role management", value: "roleManagement" },
+      { text: "User management", value: "userManagement" },
+      { text: "Activity management", value: "activityManagement" },
+      { text: "Contact management", value: "contactManagement" },
+      { text: "Deals management", value: "dealsManagement" },
       { text: "Actions", value: "actions", sortable: false },
     ],
     functionnalities: [],
@@ -269,20 +269,20 @@ export default {
     editedItem: {
       id: "",
       department: "",
-      roleManagemnent: "",
-      userManagemnent: "",
-      activityManagemnent: "",
-      contactManagemnent: "",
-      dealsManagemnent: "",
+      roleManagement: "",
+      userManagement: "",
+      activityManagement: "",
+      contactManagement: "",
+      dealsManagement: "",
     },
     defaultItem: {
       id: "",
       department: "",
-      roleManagemnent: "",
-      userManagemnent: "",
-      activityManagemnent: "",
-      contactManagemnent: "",
-      dealsManagemnent: "",
+      roleManagement: "",
+      userManagement: "",
+      activityManagement: "",
+      contactManagement: "",
+      dealsManagement: "",
     },
   }),
   computed: {
@@ -315,13 +315,13 @@ export default {
               this.functionnalities.push({
                 id: element._id,
                 department: element.department,
-                roleManagemnent: element.roleFunctionalities.roleManagemnent,
-                userManagemnent: element.roleFunctionalities.userManagemnent,
-                activityManagemnent:
-                  element.roleFunctionalities.activityManagemnent,
-                contactManagemnent:
-                  element.roleFunctionalities.contactManagemnent,
-                dealsManagemnent: element.roleFunctionalities.dealsManagemnent,
+                roleManagement: element.roleFunctionalities.roleManagement,
+                userManagement: element.roleFunctionalities.userManagement,
+                activityManagement:
+                  element.roleFunctionalities.activityManagement,
+                contactManagement:
+                  element.roleFunctionalities.contactManagement,
+                dealsManagement: element.roleFunctionalities.dealsManagement,
               });
             });
             this.myloadingvariable = false;
@@ -383,11 +383,11 @@ export default {
               id: this.editedItem.id,
               department: this.editedItem.department,
               roleFunctionalities: {
-                roleManagemnent: this.editedItem.roleManagemnent,
-                userManagemnent: this.editedItem.userManagemnent,
-                activityManagemnent: this.editedItem.activityManagemnent,
-                contactManagemnent: this.editedItem.contactManagemnent,
-                dealsManagemnent: this.editedItem.dealsManagemnent,
+                roleManagement: this.editedItem.roleManagement,
+                userManagement: this.editedItem.userManagement,
+                activityManagement: this.editedItem.activityManagement,
+                contactManagement: this.editedItem.contactManagement,
+                dealsManagement: this.editedItem.dealsManagement,
               },
             }
           )
@@ -414,11 +414,11 @@ export default {
           .post("http://localhost:3000/api/v1/role/roleAdd", {
             department: this.editedItem.department,
             roleFunctionalities: {
-              roleManagemnent: this.editedItem.roleManagemnent,
-              userManagemnent: this.editedItem.userManagemnent,
-              activityManagemnent: this.editedItem.activityManagemnent,
-              contactManagemnent: this.editedItem.contactManagemnent,
-              dealsManagemnent: this.editedItem.dealsManagemnent,
+              roleManagement: this.editedItem.roleManagement,
+              userManagement: this.editedItem.userManagement,
+              activityManagement: this.editedItem.activityManagement,
+              contactManagement: this.editedItem.contactManagement,
+              dealsManagement: this.editedItem.dealsManagement,
             },
           })
           .then((res) => {
@@ -429,11 +429,11 @@ export default {
             this.functionnalities.splice(0, 0, {
               id: res.data.data._id,
               department: this.editedItem.department,
-              roleManagemnent: this.editedItem.roleManagemnent,
-              userManagemnent: this.editedItem.userManagemnent,
-              activityManagemnent: this.editedItem.activityManagemnent,
-              contactManagemnent: this.editedItem.contactManagemnent,
-              dealsManagemnent: this.editedItem.dealsManagemnent,
+              roleManagement: this.editedItem.roleManagement,
+              userManagement: this.editedItem.userManagement,
+              activityManagement: this.editedItem.activityManagement,
+              contactManagement: this.editedItem.contactManagement,
+              dealsManagement: this.editedItem.dealsManagement,
             });
 
             this.close();

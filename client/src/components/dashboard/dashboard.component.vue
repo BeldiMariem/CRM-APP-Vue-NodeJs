@@ -104,39 +104,7 @@
           </v-list-item>
         </v-card>
       </v-col>
-      <!-- <v-col cols="4" sm="6" md="4" lg="4">
-        <v-card
-          max-height="150px"
-          height="150px"
-          style="
-            border-left: 6px solid #90a4ae;
-            border-bottom: 6px solid #90a4ae;
-          "
-          class="text-center"
-        >
-          <v-card-text>
-            <div class="display-1 mb-4">{{ NumbreOfusers }}</div>
-            Users
-          </v-card-text>
-        </v-card>
-      </v-col> -->
-      <!-- <v-col cols="4" sm="6" md="4" lg="4">
-        <v-card
-          max-height="150px"
-          height="150px"
-          class="text-center"
-          style="
-            border-left: 6px solid #90a4ae;
-            border-bottom: 6px solid #90a4ae;
-          "
-        >
-          <v-card-text>
-            <div class="display-1 mb-4">{{ Contacts }}</div>
-            Contacts
-          </v-card-text>
-        </v-card>
-      </v-col> -->
-      <v-col cols="3" sm="6" md="3" lg="3">
+     <v-col cols="3" sm="6" md="3" lg="3">
         <v-card
           max-height="150px"
           height="150px"

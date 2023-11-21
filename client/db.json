@@ -1,0 +1,50 @@
+{
+    "User":[{
+        "firstName": "Mariem",
+        "lastName": "Beldi",
+        "email": "Beldi@gmail.com",
+        "password": "testest"
+    }],
+    "contact":[{
+        "firstName": "String",
+        "lastName": "String",
+        "phoneNumber": "String",
+        "email": "String",
+        "address": "String",
+        "contactType": "String",
+        "gender": "String",
+        "dateOfBirth": "Date",
+        "nationality": "String",
+        "agencyName": "String"
+ 
+    }],
+    "role":[{
+        "firstName": "Mariem",
+        "lastName": "Beldi",
+        "email": "Beldi@gmail.com",
+        "password": "testest"
+    }],
+    "activity":[{
+        "title": "String",
+        "activityType": "String",
+        "startDate": "2023-09-28",
+        "endDate": "2023-09-28",
+        "time": "String",
+        "description": "String",
+        "activityUsers": "Object",
+        "assignedUser": "String",
+        "done": false
+    }],
+    "deal":[{
+        "title": "Mariem",
+        "contact": "Beldi",
+        "value": "Beldi@gmail.com",
+        "status": "Open",
+        "stage":"j",
+        "startDate":"2023-09-28",
+        "endDate":"2023-09-30"
+    }]
+    }
+    
+    
+

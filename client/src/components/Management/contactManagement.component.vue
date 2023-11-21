@@ -50,7 +50,20 @@
                   <v-form ref="form" v-model="valid" lazy-validation>
                     <v-container>
                       <v-row>
-                   
+                   <v-col
+                          cols="4"
+                        >
+                          <v-label>First Name</v-label>
+                          <v-text-field
+                            :rules="[rules.required]"
+                            solo
+                            append-icon="mdi-account"
+                            dense
+                            v-model="editedItem.firstName"
+                            outlined
+                          >
+                          </v-text-field>
+                        </v-col>
                         <v-col
                           cols="4"
                         >
@@ -209,11 +222,10 @@
           >
             <v-card
               height="100%"
-              style="
-                border-left: 4px solid #b0bec5;
+              style="border-left: 4px solid #b0bec5;
                 border-radius: 30px;
-                border-bottom: 4px solid #b0bec5;
-              "
+                border-bottom: 4px solid #b0bec5"
+             
             >
               <v-list-item three-line>
                 <v-list-item-avatar size="48">
@@ -386,6 +398,7 @@ export default {
         id: "",
         name: "",
         lastName: "",
+        firstName: "",
         type: "",
         phoneNumber: null,
         email: "",
@@ -394,6 +407,7 @@ export default {
         id: "",
         name: "",
         lastName: "",
+        firstName: "",
         type: "",
         phoneNumber: null,
         email: "",

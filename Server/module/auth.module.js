@@ -49,17 +49,15 @@ module.exports.userAdd = (userEmail, userDepartment) => {
                         lastSignIn: moment(),
                         //addLink: userToken,
                     });
-                    var mailOptions = {
+                  /*   var mailOptions = {
                         from: 'you@samples.mailgun.org',
                         subject: 'Welcome to WanToTrip crm!',
                         //html: "Here your access link to login : <a href=" + loginUrl + "> " + loginUrl + " </a>"
                         html: "Hello \n Welcome to WanToTrip CRM <br />  Your email address :  " + userEmail + "<br/>  Your password : " + constPassword + " <br/>  Here your access link to login : <a href=" + loginUrl + "> " + loginUrl + " </a> \n Best Regards."
                     };
-                    var mail = new MailComposer(mailOptions);
+                    var mail = new MailComposer(mailOptions); */
                     newUser.save(function (err, docs) {
-                        if (err) {
-                            reject(err);
-                        } else {
+                       /* 
                             mail.compile().build((err, message) => {
                                 var dataToSend = {
                                     to: userEmail,
@@ -73,10 +71,10 @@ module.exports.userAdd = (userEmail, userDepartment) => {
                                         resolve(body)
                                     }
                                 });
-                            });
+                            }); */
                             resolve(newUser)
 
-                        }
+                        
                     });
                 } else {
                     reject("This role does not exist. Please enter a valid one!")

@@ -118,7 +118,8 @@
             <span>{{ item.email }}</span>
           </td>
           <td>
-            <span>{{ getRole(item.role)}}{{ department}}</span>
+            <span>{{ item.role }}</span>
+            <span></span>
            
           </td>
           <!-- The Profile Dialog -->
@@ -252,9 +253,7 @@ export default {
 
             //  console.log("###########this.rolesItems", this.rolesItems);
           })
-          .catch((err) => {
-            reject(err);
-          });
+          
       });
     },
     getRole(id) {
@@ -266,10 +265,7 @@ export default {
              this.department =element.department;
             });
           })
-          .catch((err) => {
-            reject(err);
-         
-          });
+      
          
     },
    
@@ -305,10 +301,6 @@ export default {
             //  console.log("test the users ", this.users);
             this.myloadingvariable = false;
           })
-          .catch((err) => {
-            //   console.log("test err", err.response.data.errors);
-            reject(err);
-          });
       ;
     },
 
@@ -382,40 +374,32 @@ export default {
             this.close();
           });
       } else {
+        this.icon = "mdi-check-circle-outline";
+            this.snackbarText = "User added!";
+            this.color = "success";
+            this.snackbar = true;
+            this.close();
         // Add new user with its department.
         axios
           .post("http://localhost:3000/api/v1/auth/addNewUser", {
             email: this.editedItem.email,
-            role: this.editedItem.role,
+            role: this.editedItem.role
           })
           .then((res) => {
             res.data.forEach((element) => {
               this.users.splice(0, 0, {
-                id: element._id,
+                id: this.editedItem.role,
                 firstName: element.firstName,
                 lastName: element.lastName,
                 email: element.email,
                 //  birthDate: element.birthDate.substr(0, 10),
                 birthDate: element.birthDate,
-                role: element.role,
+                role:this.editedItem.role,
               });
             });
-            this.icon = "mdi-check-circle-outline";
-            this.snackbarText = "User added!";
-            this.color = "success";
-            this.snackbar = true;
-            this.close();
+           
           })
-          .catch((error) => {
-            if (error.response.status === 400)
-              this.error = "Email already exist";
-            this.icon = "mdi-alert";
-            this.snackbarText = error.response.data.errors;
-            this.color = "red";
-            this.snackbar = true;
-            this.$refs.form.validate();
-            this.close();
-          });
+         
       }
     },
   },

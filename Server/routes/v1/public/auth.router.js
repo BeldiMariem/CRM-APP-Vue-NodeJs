@@ -159,13 +159,7 @@ router.get('/getInfoByToken', verify, (req, res) => {
 router.post('/addNewUser', (req, res) => {
   authModule.userAdd(req.body.email, req.body.role).then(data => {
     if (data) {
-      User.find({
-          _id: data._id
-        })
-        .populate("role")
-        .exec(function (error, role) {
-          res.json(role)
-        })
+
     }
   }).catch(err => {
     response.badRequest(res, err);

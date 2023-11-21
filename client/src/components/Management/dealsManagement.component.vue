@@ -817,13 +817,6 @@ export default {
               console.log(res);
               this.close();
             })
-            .catch((error) => {
-              console.log(error);
-              this.icon = "mdi-alert";
-              this.snackbarText = "Error";
-              this.color = "red";
-              this.snackbar = true;
-            });
         } else {
           this.loading = true;
           axios
@@ -845,16 +838,6 @@ export default {
               this.InitializeDeals();
               this.close();
             })
-            .catch((err) => {
-              console.log(err);
-              this.loading = false;
-              if (err.response.status === 409)
-                this.error = "Role name is used and already exists exist";
-              this.icon = "mdi-alert";
-              this.snackbarText = "Error";
-              this.color = "red";
-              this.snackbar = true;
-            });
         }
       }
     },
